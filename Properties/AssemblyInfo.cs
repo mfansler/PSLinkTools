@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("LinkTools")]
 [assembly: AssemblyDescription("A set of utilities to manage file system links.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("LaRouche Youth, LLC")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright © Mervin Fansler 2012")]
 [assembly: AssemblyTrademark("")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.1")]

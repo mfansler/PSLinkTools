@@ -1,0 +1,66 @@
+PSLinkTools
+===========
+
+PSLinkTools is a PowerShell SnapIn that provides a set of cmdlets for creating and manipulating file system links.
+
+
+Building
+--------
+
+Microsoft's [Windows PowerShell 2.0 SDK](http://www.microsoft.com/download/en/details.aspx?id=2560) must be installed.
+
+In **PowerShell**, navigate to the primary directory of this project, then run
+
+    PS> .\build\buildLinkTools.ps1
+
+Settings in the script may need adjusting depending on x86/x64, and/or any non-standard installation directories.
+
+
+Registering
+-----------
+
+Once built, the *LinkTools.dll* must be registered.
+
+In **PowerShell**, navigate to the primary directory of this project, then run
+
+    PS> .\build\registerLinkTools.ps1
+
+Again, settings in the script may need adjusting depending on x86/x64, and/or any non-standard installation directories.
+
+
+Using In PowerShell
+-------------------
+
+Once registered, the LinkTools SnapIn is enabled (per session) by running:
+
+    PS> Add-PSSnapin LinkTools
+
+To remove the SnapIn during a session, run:
+
+    PS> Remove-PSSnapin LinkTools
+	
+
+Release Notes
+-------------
+
+**Version 1**
+
++ **New-Symlink** cmdlet - straight interface to the **CreateSymbolicLink** method found in *kernel32.dll*
+
+
+About
+-----
+
+The main reason I wrote this is because neither **mklink** nor PSCX's **New-Symlink** have proper support for *root relative* symbolic links, which are really useful.
+Hence, that probably explains why this is the only command in here as of version 1. ;)
+
+
+Copyright Stuff
+---------------
+Copyright (c) 2012 Mervin Fansler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
