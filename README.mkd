@@ -35,6 +35,34 @@ Once registered, the LinkTools SnapIn is enabled (per session) by running:
 
     PS> Add-PSSnapin LinkTools
 
+The **New-Symlink** cmdlet has the following arguments:
+
++ **LiteralPath** (required) - this is the path to the symlink that is to be created
++ **Target** (required) - this is the path to the file or directory that is to be linked to (see [MSDN documentation on accepted paths](http://msdn.microsoft.com/en-us/library/aa363878%28v=vs.85%29.aspx))
++ **Type** (optional) - either **"File"** (default) or **"Directory"**; if linking to a directory, the **Type** must be specified as **"Directory"**
+
+Example:
+
+    PS> New-Symlink -LiteralPath 'C:\Users\Gotthold\Desktop\Minna.pdf' -Target 'C:\Users\Gotthold\Books\Dramas\Lessing - Minna von Barnhelm.pdf'
+	
+or, assuming the order of the arguments,
+
+    PS> New-Symlink 'C:\Users\Gotthold\Desktop\Minna.pdf' 'C:\Users\Gotthold\Books\Dramas\Lessing - Minna von Barnhelm.pdf'
+	
+or, using a directory relative path,
+
+    PS> New-Symlink 'C:\Users\Gotthold\Desktop\Minna.pdf' -Target '..\Books\Dramas\Lessing - Minna von Barnhelm.pdf'
+	
+or, as a root relative path,
+
+    PS> New-Symlink 'C:\Users\Gotthold\Desktop\Minna.pdf' '\Users\Gotthold\Books\Dramas\Lessing - Minna von Barnhelm.pdf'
+
+Note: The **New-Symlink** command does not require the Target to exist.  To illustrate a consequence of this, if one executed the following command:
+
+    PS> New-Symlink -LiteralPath 'C:\Users\All Users\Desktop\Windows' -Target 'C:\Windows'
+
+the result would be a link on the desktop to a *file* in the root of the C drive named *Windows*, whether or not that *file* exists (probably not).
+
 To remove the SnapIn during a session, run:
 
     PS> Remove-PSSnapin LinkTools
